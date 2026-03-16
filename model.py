@@ -30,3 +30,11 @@ class ProductUpdate(SQLModel):
         return normalized
 
 
+class Product(ProductCreate, table=True):
+    __tablename__ = "products"
+
+    id: int | None = Field(default=None, primary_key=True)
+
+
+class ProductOut(ProductCreate):
+    id: int
